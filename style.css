@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    min-height: 100vh;
+    background-image: url(images/fon.jpg);
+}
+
+.wrapper {
+    height: 500px;
+    width: 500px;
+    padding: 25px;
+    background: #f8f8f8;
+    border-radius: 10px;
+}
+
+.cards,
+.card,
+.view,
+.stats,
+.stats-element:nth-child(3),
+.refresh-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards {
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cards .card {
+    cursor: pointer;
+    position: relative;
+    perspective: 800px;
+    transform-style: preserve-3d;
+    height: calc(100% / 4 - 10px);
+    width: calc(100% / 4 - 10px);
+}
+
+.shake {
+    animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-13px);
+    }
+    40% {
+        transform: translateX(13px);
+    }
+    60% {
+        transform: translateX(-8px);
+    }
+    80% {
+        transform: translateX(8px);
+    }
+}
+
+.cards .card .view {
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    pointer-events: none;
+    position: absolute;
+    background: #E0F0FF; 
+    border-radius: 7px;
+    backface-visibility: hidden;
+    transition: transform 0.25s linear;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card .front-view span {
+    font-size: 50px;
+    color: #157b91; 
+}
+
+.card .back-view {
+    transform: rotateY(-180deg);
+}
+
+.card .back-view img {
+    width: 80px;
+    height: 80px;
+}
+
+.card.flip .front-view {
+    transform: rotateY(180deg);
+}
+
+.card.flip .back-view {
+    transform: rotateY(0);
+}
+
+.stats {
+    height: 50px;
+    width: 500px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #E0F0FF; 
+    border-radius: 10px;
+}
+
+.stats-element {
+    height: 40px;
+    width: 30%;
+}
+
+.stats-element:nth-child(1),
+.stats-element:nth-child(2) {
+    
+    line-height: 40px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.refresh-btn {
+    height: 20px;
+    width: 200px;
+    border: 1px solid #1594b1;
+    text-align: center; 
+    color: #4d91d1; 
+    border-radius: 5px;
+}
+
+.refresh-btn:hover {
+    background: #2d83b4; 
+    color: white;
+    text-align: center;  
+    cursor: pointer;
+}
